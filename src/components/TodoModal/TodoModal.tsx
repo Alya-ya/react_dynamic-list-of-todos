@@ -29,15 +29,11 @@ export const TodoModal: React.FC<Props> = ({
       ) : (
         <div className="modal-card">
           <header className="modal-card-head">
-            <div
-              className="modal-card-title has-text-weight-medium"
-              data-cy="modal-header"
-            >
+            <div className="modal-card-title" data-cy="modal-header">
               Todo #{todo.id}
             </div>
 
             <button
-              type="button"
               className="delete"
               data-cy="modal-close"
               onClick={onClose}

@@ -8,8 +8,8 @@ import { TodoFilter } from './components/TodoFilter';
 import { TodoModal } from './components/TodoModal';
 import { Loader } from './components/Loader';
 import { getTodos, getUser } from './api';
-import { Todo } from '../src/types/Todo';
-import { User } from '../src/types/User';
+import { Todo } from './types/Todo';
+import { User } from './types/User';
 
 export const App: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -74,9 +74,9 @@ export const App: React.FC = () => {
 
             <div className="block">
               <TodoFilter
-                setStatus={setStatus}
+                onStatusChange={setStatus}
                 query={query}
-                setQuery={setQuery}
+                onQueryChange={setQuery}
               />
             </div>
 

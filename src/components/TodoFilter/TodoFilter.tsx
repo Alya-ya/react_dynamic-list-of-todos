@@ -1,19 +1,23 @@
 import React from 'react';
 
 type Props = {
-  setStatus: (status: string) => void;
+  onStatusChange: (status: string) => void;
   query: string;
-  setQuery: (query: string) => void;
+  onQueryChange: (query: string) => void;
 };
 
-export const TodoFilter: React.FC<Props> = ({ setStatus, query, setQuery }) => {
+export const TodoFilter: React.FC<Props> = ({
+  onStatusChange,
+  query,
+  onQueryChange,
+}) => {
   return (
     <form className="field has-addons">
       <p className="control">
         <span className="select">
           <select
             data-cy="statusSelect"
-            onChange={e => setStatus(e.target.value)}
+            onChange={e => onStatusChange(e.target.value)}
           >
             <option value="all">All</option>
             <option value="active">Active</option>
@@ -29,7 +33,7 @@ export const TodoFilter: React.FC<Props> = ({ setStatus, query, setQuery }) => {
           className="input"
           placeholder="Search..."
           value={query}
-          onChange={e => setQuery(e.target.value)}
+          onChange={e => onQueryChange(e.target.value)}
         />
 
         <span className="icon is-left">
@@ -42,7 +46,7 @@ export const TodoFilter: React.FC<Props> = ({ setStatus, query, setQuery }) => {
               data-cy="clearSearchButton"
               type="button"
               className="delete"
-              onClick={() => setQuery('')}
+              onClick={() => onQueryChange('')}
             />
           </span>
         )}
